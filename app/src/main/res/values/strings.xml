@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">SportShop</string>
+    <string name="addSale">Добавить товар</string>
+    <string name="showSale">Показать все товары</string>
+    <string name="itemName">название товара</string>
+    <string name="cost">стоимость</string>
+    <string name="admin">Администратор</string>
+    <string name="shopper">Покупатель</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start">Старт</string>
+    <string name="exit">Выход</string>
+    <string name="shopName">название магазина</string>
+    <string name="shopAddress">Адрес магазина</string>
+    <string name="phone">телефон</string>
+    <string name="brand">бренд</string>
+    <string name="sport">вид спорта</string>
+    <string name="costItem">стоимость</string>
+    <string name="shopItem">магазин</string>
+    <string name="category">категория</string>
+    <string name="count">количество</string>
+    <string name="purchase">Купить</string>
+    <string name="item_color">Цвет:</string>
+    <string name="item_brand">Производитель:</string>
+    <string name="item_category">Категория:</string>
+    <string name="item_sport">Вид спорта:</string>
+    <string name="item_shop">Магазин:</string>
+    <string name="add_shop">Добавить магазин</string>
+    <string name="item_name">товар:</string>
+    <string name="item_clr">цвет:</string>
+</resources>

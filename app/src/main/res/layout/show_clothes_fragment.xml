@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.elena.sportshop.MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/item_color"
+        android:textSize="20sp"
+        android:background="@color/violet"
+        android:textColor="@color/colorBlack"/>
+
+    <Spinner
+        android:id="@+id/spnrShowColor"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+
+        />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/item_brand"
+        android:textSize="20sp"
+        android:background="@color/violet"
+        android:textColor="@color/colorBlack"/>
+
+    <Spinner
+        android:id="@+id/spnrShowBrand"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:background="@color/violet"
+        android:textColor="@color/colorBlack"
+        android:text="@string/item_category" />
+
+    <Spinner
+        android:id="@+id/spnrShowCategory"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:background="@color/violet"
+        android:textColor="@color/colorBlack"
+        android:text="@string/item_sport" />
+
+    <Spinner
+        android:id="@+id/spnrShowSport"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:background="@color/violet"
+        android:textColor="@color/colorBlack"
+        android:text="@string/item_shop" />
+
+    <Spinner
+        android:id="@+id/spnrShowShop"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <EditText
+        android:id="@+id/etCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Стоимость от " />
+
+    <Button
+        android:id="@+id/btnShow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/showSale" />
+
+</LinearLayout>
