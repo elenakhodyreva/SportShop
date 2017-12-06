@@ -27,7 +27,7 @@ import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
 
-    StartFragment startFragment;
+    private StartFragment startFragment;
 
     /** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
@@ -35,10 +35,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // go to the start fragment
         if(startFragment== null)
             startFragment= new StartFragment();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.lContainer, startFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.lContainer, startFragment)
+                .commit();
 
     }
 
@@ -53,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id= item.getItemId();
-        switch (id)
-        {
+        switch (id) {
             case R.id.begin:
 
                 if(startFragment== null)

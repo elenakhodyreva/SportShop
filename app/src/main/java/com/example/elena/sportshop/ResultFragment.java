@@ -25,25 +25,23 @@ import android.widget.Toast;
 
 public class ResultFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    String clr= "";
-    String brnd="";
-    String ctgr="";
-    String sprt= "";
-    String shp="";
-    int cost=0;
+    private String clr= "";
+    private String brnd="";
+    private String ctgr="";
+    private String sprt= "";
+    private String shp="";
+    private int cost=0;
 
-    DBHelper dbh;
+    private DBHelper dbh;
 
-    SQLiteDatabase db;
-    SimpleCursorAdapter simpleCursorAdapter;
+    private SQLiteDatabase db;
+    private SimpleCursorAdapter simpleCursorAdapter;
 
-    ListView lvShowClothes;
-    Cursor c;
+    private ListView lvShowClothes;
+    private Cursor c;
 
-    //rec view
-
-    RecyclerView rvShowItems;
-    ItemAdapter adapter;
+    private RecyclerView rvShowItems;
+    private ItemAdapter adapter;
 
     private static final int CM_PURCHASE_ID = 1;
 
@@ -59,8 +57,6 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
         View v= inflater.inflate(R.layout.shop_item, container, false);
 //        lvShowClothes= (ListView)v.findViewById(R.id.lvShowClothes);
 //        registerForContextMenu(lvShowClothes);
-
-
 
         savedInstanceState= getArguments();
         if(savedInstanceState!= null)
@@ -123,9 +119,7 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
         adapter= new ItemAdapter(getActivity(), null);
         rvShowItems.setAdapter(adapter);
 
-
         registerForContextMenu(rvShowItems);
-
         getLoaderManager().initLoader(0, null, this);
 
 //        lvShowClothes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -134,8 +128,6 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
 //                Toast.makeText(getContext(), "" + id, Toast.LENGTH_SHORT).show();
 //            }
 //        });
-
-
 
         return v;
     }
@@ -150,11 +142,8 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
-        if(item.getItemId()== CM_PURCHASE_ID)
-        {
-
+        if(item.getItemId()== CM_PURCHASE_ID) {
             int id= ((ItemAdapter)rvShowItems.getAdapter()).getId();
-
             Toast.makeText(getContext(), "id "+ id, Toast.LENGTH_SHORT).show();
             //AdapterView.AdapterContextMenuInfo id= (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
 
@@ -172,8 +161,7 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
 
             if(count==0)
                 db.delete("clothes", "_id" + " = " + id, null);
-            else if(count>0)
-            {
+            else if(count>0) {
                 String sql= "UPDATE clothes SET count="+ count+" WHERE _id= "+id;
                 db.execSQL(sql);
             }
@@ -267,8 +255,7 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
         }
     }
 
-    public class ItemHolder extends RecyclerView.ViewHolder
-    {
+    private class ItemHolder extends RecyclerView.ViewHolder {
         TextView tvItem;
         TextView tvColor;
         TextView tvCount;
@@ -280,7 +267,7 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
         TextView tvShopAddressItem;
         TextView tvShopPhoneItem;
 
-        public ItemHolder(View itemView) {
+        private ItemHolder(View itemView) {
             super(itemView);
 
             tvItem= (TextView)itemView.findViewById(R.id.tvItem);
@@ -296,7 +283,8 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
 
             itemView.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
                 @Override
-                public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+                public void onCreateContextMenu(ContextMenu menu, View v,
+                                                ContextMenu.ContextMenuInfo menuInfo) {
                     menu.add(0, CM_PURCHASE_ID, 0, R.string.purchase);
                 }
             });
@@ -306,8 +294,7 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
 
     }
 
-    public  class ItemAdapter extends RecyclerView.Adapter<ItemHolder>
-    {
+    private  class ItemAdapter extends RecyclerView.Adapter<ItemHolder> {
         Cursor dataCursor;
         Context context;
 

@@ -5,23 +5,20 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by Elena on 17.11.2017.
- */
 
 public class DBHelper extends SQLiteOpenHelper {
 
     // данные для таблицы цветов
-    String[] colorNames = { "Красный", "Оранжевый", "Желтый", "Зеленый", "Синий", "Сиреневый",
+    private String[] colorNames = { "Красный", "Оранжевый", "Желтый", "Зеленый", "Синий", "Сиреневый",
             "Коричневый", "Серый", "Черный" };
 
-    String [] brandNames= {"adidas", "nike", "reebok", "asics", "saucony", "garmin", "polar"};
-    String [] categoryNames={"одежда", "обувь", "аксессуары"};
-    String [] sportNames={"бег", "футбол", "фитнес", "гимнастика", "скейтборд"};
+    private String [] brandNames= {"adidas", "nike", "reebok", "asics", "saucony", "garmin", "polar"};
+    private String [] categoryNames={"одежда", "обувь", "аксессуары"};
+    private String [] sportNames={"бег", "футбол", "фитнес", "гимнастика", "скейтборд"};
 
-    String[] shopNames ={"tandem", "mega", "park house"};
-    String [] shopAddresses= {"ibragimova 56", "pobedy pr", "yamasheva"};
-    String [] shopPhones ={"11111", "22222", "33333"};
+    private String[] shopNames ={"tandem", "mega", "park house"};
+    private String [] shopAddresses= {"ibragimova 56", "pobedy pr", "yamasheva"};
+    private String [] shopPhones ={"11111", "22222", "33333"};
 
 
     public DBHelper(Context context) {

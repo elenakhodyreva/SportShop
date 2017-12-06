@@ -17,11 +17,11 @@ import android.widget.TextView;
  */
 public class AddShopFrg extends Fragment {
 
-    View v;
-    EditText etShopName, etShopAddress, etShopPhone;
-    Button btnAddShopInDB;
+    private View v;
+    private EditText etShopName, etShopAddress, etShopPhone;
+    private Button btnAddShopInDB;
 
-    DBHelper dbh;
+    private DBHelper dbh;
 
     public AddShopFrg() {
         // Required empty public constructor
@@ -40,10 +40,10 @@ public class AddShopFrg extends Fragment {
 
         btnAddShopInDB= (Button)v.findViewById(R.id.btnAddShopInDB);
 
+        // here just adding a new shop into database, table shops
         btnAddShopInDB.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 dbh = new DBHelper(getContext());
                 SQLiteDatabase db= dbh.getWritableDatabase();
 

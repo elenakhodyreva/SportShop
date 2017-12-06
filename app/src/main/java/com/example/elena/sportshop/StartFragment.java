@@ -14,10 +14,10 @@ import android.widget.TextView;
  */
 public class StartFragment extends Fragment implements View.OnClickListener {
 
-    View v;
-    Button btnAdmin, btnShopper;
-    AddClothesFrg addClothesFragment;
-    ShowClothesFrg showClothesFragment;
+    private View v;
+    private Button btnAdmin, btnShopper;
+    private AddClothesFrg addClothesFragment;
+    private ShowClothesFrg showClothesFragment;
 
     public StartFragment() {
         // Required empty public constructor
@@ -33,8 +33,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
         return  v;
     }
 
-    private void setWidgets()
-    {
+    private void setWidgets() {
         btnAdmin= (Button)v.findViewById(R.id.btnAdmin);
         btnShopper= (Button)v.findViewById(R.id.btnShopper);
 
@@ -43,23 +42,25 @@ public class StartFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
+    public void onClick(View v) {
+        switch (v.getId()) {
+            // if user is administrator, only admin can add clothes
             case R.id.btnAdmin:
 
                 if(addClothesFragment== null)
                     addClothesFragment= new AddClothesFrg();
-                getFragmentManager().beginTransaction().replace(R.id.lContainer, addClothesFragment).commit();
+                getFragmentManager().beginTransaction().replace(R.id.lContainer, addClothesFragment)
+                        .commit();
 
                 break;
 
+            // if user is customer, customer can overlook and buy clothes
             case R.id.btnShopper:
 
                 if(showClothesFragment== null)
                     showClothesFragment= new ShowClothesFrg();
-                getFragmentManager().beginTransaction().replace(R.id.lContainer, showClothesFragment).commit();
+                getFragmentManager().beginTransaction().replace(R.id.lContainer,
+                        showClothesFragment).commit();
 
                 break;
         }
