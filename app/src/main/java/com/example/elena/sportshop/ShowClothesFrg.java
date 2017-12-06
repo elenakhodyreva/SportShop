@@ -110,7 +110,7 @@ public class ShowClothesFrg extends Fragment {
 
         spnrShowShop.setAdapter(adapterShop);
 
-
+        //spinners
         spnrShowColor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
