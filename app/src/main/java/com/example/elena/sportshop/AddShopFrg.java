@@ -40,7 +40,7 @@ public class AddShopFrg extends Fragment {
 
         btnAddShopInDB= (Button)v.findViewById(R.id.btnAddShopInDB);
 
-        // here just adding a new shop into database, table shops
+        // here just adding a new shop into the database, table shops
         btnAddShopInDB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
