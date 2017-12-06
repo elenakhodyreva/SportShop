@@ -182,7 +182,7 @@ public class ShowClothesFrg extends Fragment {
 
     }
 
-    // here we set necessary parameters for displaying and pass they to the result fragment
+    // here we set necessary parameters for displaying and pass they into the result fragment
     private void showAllItems() {
         if(!etCost.getText().toString().isEmpty()) {
             cost= Integer.parseInt(etCost.getText().toString());
