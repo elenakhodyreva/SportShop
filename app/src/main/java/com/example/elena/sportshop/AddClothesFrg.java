@@ -79,28 +79,28 @@ public class AddClothesFrg extends Fragment {
         etCount= (EditText)v.findViewById(R.id.etCount);
 
         // адаптер colors
-        ArrayAdapter<String> adapterColors = new ArrayAdapter<String>(getActivity(),
+        ArrayAdapter<String> adapterColors = new ArrayAdapter<>(getActivity(),
                 android.R.layout.simple_spinner_item, colorNames);
         adapterColors.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spnrColors.setAdapter(adapterColors);
 
         // adapter Brands
-        ArrayAdapter<String> adapterBrands = new ArrayAdapter<String>(getActivity(),
+        ArrayAdapter<String> adapterBrands = new ArrayAdapter<>(getActivity(),
                 android.R.layout.simple_spinner_item, brandNames);
         adapterBrands.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spnrBrand.setAdapter(adapterBrands);
 
         //adapter Categories
-        ArrayAdapter<String> adapterCategories = new ArrayAdapter<String>(getActivity(),
+        ArrayAdapter<String> adapterCategories = new ArrayAdapter<>(getActivity(),
                 android.R.layout.simple_spinner_item, categoryNames);
         adapterCategories.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spnrCategory.setAdapter(adapterCategories);
 
         //adapter Sport
-        ArrayAdapter<String> adapterSport = new ArrayAdapter<String>(getActivity(),
+        ArrayAdapter<String> adapterSport = new ArrayAdapter<>(getActivity(),
                 android.R.layout.simple_spinner_item, sportNames);
         adapterSport.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -195,7 +195,7 @@ public class AddClothesFrg extends Fragment {
             }
         });
 
-        //if that shop doesn't exist we need to add a new shop, that's why we go to the addShop frg
+        //if that  shop doesn't exist we need to add a new shop, that's why we go to the addShop frg
         btnAddShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
