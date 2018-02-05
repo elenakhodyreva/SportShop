@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,14 +48,25 @@ public class AddShopFrg extends Fragment {
                 dbh = new DBHelper(getContext());
                 SQLiteDatabase db= dbh.getWritableDatabase();
 
-                ContentValues cv = new ContentValues();
-                
-                cv.clear();
-                cv.put("shopName", etShopName.getText().toString());
-                cv.put("shopAddress", etShopAddress.getText().toString());
-                cv.put("shopPhone", etShopPhone.getText().toString());
+                if(!etShopName.getText().toString().isEmpty()
+                        && !etShopAddress.getText().toString().isEmpty()
+                        && !etShopPhone.getText().toString().isEmpty())
+                {
+                    ContentValues cv = new ContentValues();
 
-                db.insert("shops", null, cv);
+                    cv.clear();
+
+
+                    cv.put("shopName", etShopName.getText().toString());
+                    cv.put("shopAddress", etShopAddress.getText().toString());
+                    cv.put("shopPhone", etShopPhone.getText().toString());
+
+                    db.insert("shops", null, cv);
+                }
+                else
+                    Toast.makeText(getContext(),"Введите корректные данные!", Toast.LENGTH_SHORT)
+                            .show();
+
             }
         });
 

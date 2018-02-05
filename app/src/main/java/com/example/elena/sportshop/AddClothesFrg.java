@@ -206,7 +206,9 @@ public class AddClothesFrg extends Fragment {
 
     private void addItem() {
 
-        if(!etCost.getText().toString().isEmpty() && !etCount.getText().toString().isEmpty()) {
+        if( !etItem.getText().toString().isEmpty() && !etCost.getText().toString().isEmpty()
+                && !etCount.getText().toString().isEmpty() && colorPos!= 0
+                && brandPos!=0 && categoryPos!=0 && sportPos!=0) {
             dbh= new DBHelper(getContext());
             ContentValues cv = new ContentValues();
             SQLiteDatabase db = dbh.getWritableDatabase();

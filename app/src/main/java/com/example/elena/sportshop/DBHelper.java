@@ -31,8 +31,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // создаем таблицу цветов
         db.execSQL("create table colors ("
-                + "idc integer primary key autoincrement,"
-                + "colorName text"
+                + "idc integer primary key autoincrement not null,"
+                + "colorName text not null"
                 + ");");
 
         // заполняем ее
@@ -45,8 +45,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // brand table
         db.execSQL("create table brands ("
-                + "idb integer primary key autoincrement,"
-                +"brandName text"
+                + "idb integer primary key autoincrement not null,"
+                +"brandName text not null"
                 +");");
 
         for (int i = 0; i < brandNames.length; i++) {
@@ -58,8 +58,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // category table
         db.execSQL("create table categories ("
-                + "category_id integer primary key autoincrement,"
-                + "categoryName text"
+                + "category_id integer primary key autoincrement not null,"
+                + "categoryName text not null"
                 + ");");
 
         for (int i = 0; i < categoryNames.length; i++) {
@@ -71,8 +71,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // sport table
         db.execSQL("create table sport ("
-                + "ids integer primary key autoincrement,"
-                + "sportName text"
+                + "ids integer primary key autoincrement not null,"
+                + "sportName text not null"
                 + ");");
 
         for (int i = 0; i < sportNames.length; i++) {
@@ -84,10 +84,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // shops table
         db.execSQL("create table shops ("
-                + "idsps integer primary key autoincrement,"
-                + "shopName text,"
-                + "shopAddress text,"
-                + "shopPhone text"
+                + "idsps integer primary key autoincrement not null,"
+                + "shopName text not null,"
+                + "shopAddress text not null,"
+                + "shopPhone text not null"
                 + ");");
 
         for (int i = 0; i < shopNames.length; i++) {
@@ -101,15 +101,15 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // создаем таблицу товаров
         db.execSQL("create table clothes ("
-                + "_id integer primary key autoincrement,"
-                + "name text,"
-                + "colorId integer,"
-                + "brandId integer,"
-                + "categoryId integer,"
-                + "sportId integer,"
-                + "shopId integer,"
-                + "cost integer,"
-                + "count integer"
+                + "_id integer primary key autoincrement not null,"
+                + "name text not null,"
+                + "colorId integer not null,"
+                + "brandId integer not null,"
+                + "categoryId integer not null,"
+                + "sportId integer not null,"
+                + "shopId integer not null,"
+                + "cost integer not null,"
+                + "count integer not null"
                 + ");");
 
     }

@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,8 +17,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,9 +32,6 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
     private DBHelper dbh;
 
     private SQLiteDatabase db;
-    private SimpleCursorAdapter simpleCursorAdapter;
-
-    private ListView lvShowClothes;
     private Cursor c;
 
     private RecyclerView rvShowItems;
@@ -55,8 +49,7 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
                              Bundle savedInstanceState) {
 
         View v= inflater.inflate(R.layout.shop_item, container, false);
-//        lvShowClothes= (ListView)v.findViewById(R.id.lvShowClothes);
-//        registerForContextMenu(lvShowClothes);
+
 
         savedInstanceState= getArguments();
         if(savedInstanceState!= null)
@@ -73,45 +66,6 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
         dbh = new DBHelper(getContext());
         db = dbh.getReadableDatabase();
 
-//        String sqlQuery = "SELECT clothes._id, clothes.name, clothes.cost, clothes.count, "
-//                    + "colors.colorName, colors.idc, "
-//
-//                    + "brands.brandName, brands.idb, "
-//                    + "categories.categoryName, categories.category_id, "
-//                    + "sport.sportName, sport.ids, "
-//
-//
-//                    + "shops.shopName, shops.idsps, "
-//                    + "shops.shopAddress, shops.shopPhone "
-//                    + "FROM clothes, colors, brands, categories, shops, sport "
-//                    + "WHERE clothes.colorId=colors.idc "
-//
-//                    + "AND clothes.brandId= brands.idb "
-//                    + "AND clothes.categoryId= categories.category_id "
-//                    + "AND clothes.sportId= sport.ids "
-//
-//                    + "AND clothes.shopId= shops.idsps "
-//
-//                    + "AND colors.colorName LIKE '%"+clr  +"' "
-//                    + "AND brands.brandName LIKE '%"+brnd+ "' "
-//                    + "AND categories.categoryName LIKE '%"+ctgr+ "' "
-//                    + "AND sport.sportName LIKE '%"+sprt+"' "
-//                    + "AND shops.shopName LIKE '%"+shp+"' "
-//
-//                    +"AND clothes.cost> "+ cost;
-//
-//        c = db.rawQuery(sqlQuery, null);
-
-//        String from[] = {"name", "colorName", "count", "brandName", "categoryName", "sportName", "cost", "shopName",
-//                "shopAddress", "shopPhone"};
-//        int to[] = {R.id.tvItem, R.id.tvColor, R.id.tvCount, R.id.tvBrandItem, R.id.tvCatItem, R.id.tvSportItem,
-//                R.id.tvCostItem, R.id.tvShopItem, R.id.tvShopAddressItem, R.id.tvShopPhoneItem};
-//
-//        simpleCursorAdapter = new SimpleCursorAdapter(getContext(), R.layout.clothes_item, null,
-//                from, to, 0);
-
-//        lvShowClothes.setAdapter(simpleCursorAdapter);
-
         rvShowItems= (RecyclerView)v.findViewById(R.id.rvShowItems);
         rvShowItems.setHasFixedSize(true);
         rvShowItems.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -122,22 +76,11 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
         registerForContextMenu(rvShowItems);
         getLoaderManager().initLoader(0, null, this);
 
-//        lvShowClothes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getContext(), "" + id, Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
         return v;
     }
 
-//
-//    @Override
-//    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-//        super.onCreateContextMenu(menu, v, menuInfo);
-//        menu.add(0, CM_PURCHASE_ID, 0, R.string.purchase);
-//    }
+
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
@@ -350,7 +293,7 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
             holder.tvShopPhoneItem.setText(shopPhone);
 
 
-            //int id= dataCursor.getInt(dataCursor.getColumnIndex("_id"));
+
 
             holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -359,23 +302,14 @@ public class ResultFragment extends Fragment implements LoaderManager.LoaderCall
                     dataCursor.moveToPosition(position);
                     int id= dataCursor.getInt(dataCursor.getColumnIndex("_id"));
 
-                   // Toast.makeText(getContext(), "id "+ id, Toast.LENGTH_SHORT).show();
+
                     setID(id);
 
                     return false;
                 }
             });
 
-//            holder.itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//                    dataCursor.moveToPosition(position);
-//                    int id= dataCursor.getInt(dataCursor.getColumnIndex("_id"));
-//
-//                    Toast.makeText(getContext(), "id "+ id, Toast.LENGTH_SHORT).show();
-//                }
-//            });
+
        }
 
         public Cursor swapCursor(Cursor cursor) {
